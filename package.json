@@ -1,0 +1,30 @@
+{
+  "name": "diplom-work",
+  "version": "1.0.0",
+  "description": "1. Создание смарт-контракта\r Смарт-контракт TaskManager реализует базовую функциональность для создания и завершения задач. Он содержит структуру данных Task, которая включает в себя уникальный идентификатор задачи, описание, владельца и состояние завершения. Контракт предоставляет функции для создания новых задач (createTask) и их завершения (completeTask). Эти функции вызывают события, которые могут быть использованы для отслеживания состояния задач.",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat run scripts/deploy.js --network fuji"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "dotenv": "^16.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medjidi/Decentralized-AI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/medjidi/Decentralized-AI/issues"
+  },
+  "homepage": "https://github.com/medjidi/Decentralized-AI#readme",
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.4.7"
+  }
+}
