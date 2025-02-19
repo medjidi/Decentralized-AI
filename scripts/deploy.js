@@ -1,11 +1,21 @@
+const hre = require("hardhat");
+
 async function main() {
-    const LLMPlatform = await ethers.getContractFactory("LLMPlatform");
-    const contract = await LLMPlatform.deploy();
-    await contract.deployed();
-    console.log("Contract deployed to:", contract.address);
-  }
-  
-  main().catch((error) => {
+  // Получаем фабрику контракта
+  const LLMPlatform = await hre.ethers.getContractFactory("LLMPlatform");
+
+  // Деплоим контракт
+  const contract = await LLMPlatform.deploy();
+
+  // Ждем подтверждения деплоя (совместимый синтаксис для всех версий)
+  await contract.deployed();
+
+  console.log("Contract deployed to:", contract.address);
+}
+
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
     console.error(error);
-    process.exitCode = 1;
+    process.exit(1);
   });
