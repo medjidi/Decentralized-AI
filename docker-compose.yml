@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  blockchain:
+    image: trufflesuite/ganache-cli:latest
+    ports:
+      - "8545:8545"
+    environment:
+      - MNEMONIC="test mnemonic phrase"
+      - DEFAULT_BALANCE=1000000000000000000000
+  api:
+    build: ./api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - blockchain
+    environment:
+      - RPC_URL=http://blockchain:8545
+      - PRIVATE_KEY=your-private-key
+      - CONTRACT_ADDRESS=deployed-contract-address

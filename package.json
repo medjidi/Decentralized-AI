@@ -1,14 +1,34 @@
 {
-  "name": "hardhat-project",
-  "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "hardhat": "^2.22.18"
+  "name": "diplom-work",
+  "version": "1.0.0",
+  "description": "1. Создание смарт-контракта\r Смарт-контракт TaskManager реализует базовую функциональность для создания и завершения задач. Он содержит структуру данных Task, которая включает в себя уникальный идентификатор задачи, описание, владельца и состояние завершения. Контракт предоставляет функции для создания новых задач (createTask) и их завершения (completeTask). Эти функции вызывают события, которые могут быть использованы для отслеживания состояния задач.",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat run scripts/deploy.js --network fuji"
   },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.12",
+    "chai": "^5.2.0",
+    "chai-http": "^5.1.1",
+    "dotenv": "^16.0.3",
+    "mocha": "^11.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medjidi/Decentralized-AI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/medjidi/Decentralized-AI/issues"
+  },
+  "homepage": "https://github.com/medjidi/Decentralized-AI#readme",
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "ethers": "^6.13.5",
-    "express": "^4.21.2"
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.4.7"
   }
 }

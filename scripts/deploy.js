@@ -1,31 +1,21 @@
 const hre = require("hardhat");
-const fs = require('fs');
 
 async function main() {
-    const PromptContract = await hre.ethers.getContractFactory("PromptContract");
-    const deployedContract = await PromptContract.deploy();
+  // Получаем фабрику контракта
+  const LLMPlatform = await hre.ethers.getContractFactory("LLMPlatform");
 
-    // Ожидание завершения деплоя
-    await deployedContract.waitForDeployment();
+  // Деплоим контракт
+  const contract = await LLMPlatform.deploy();
 
-    // Получение адреса контракта
-    const contractAddress = deployedContract.target;
+  // Ждем подтверждения деплоя (совместимый синтаксис для всех версий)
+  await contract.deployed();
 
-    // Вывод адреса в консоль
-    console.log("Contract deployed to:", contractAddress);
-
-    // Запись адреса контракта в .env
-    if (contractAddress) {
-        fs.appendFileSync('.env', `\nCONTRACT_ADDRESS=${contractAddress}`);
-        console.log("Contract address saved to .env");
-    } else {
-        console.error("Failed to save contract address: contractAddress is undefined");
-    }
+  console.log("Contract deployed to:", contract.address);
 }
 
 main()
-    .then(() => process.exit(0))
-    .catch((error) => {
-        console.error(error);
-        process.exit(1);
-    });
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
