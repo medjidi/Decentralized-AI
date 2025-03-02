@@ -11,7 +11,10 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "@nomicfoundation/hardhat-verify": "^2.0.12",
-    "dotenv": "^16.0.3"
+    "chai": "^5.2.0",
+    "chai-http": "^5.1.1",
+    "dotenv": "^16.0.3",
+    "mocha": "^11.1.0"
   },
   "repository": {
     "type": "git",
